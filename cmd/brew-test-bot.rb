@@ -832,7 +832,6 @@ module Homebrew
 
     def fetch_formula(fetch_args, audit_args, spec_args = [])
       test "brew", "fetch", "--retry", *spec_args, *fetch_args
-      test "brew", "audit", *audit_args
     end
 
     def formula(formula_name)
@@ -930,8 +929,6 @@ module Homebrew
 
         install_passed = steps.last.passed?
       end
-
-      test "brew", "audit", *audit_args
 
       # Only check for style violations if not already shown by
       # `brew audit --new-formula`
